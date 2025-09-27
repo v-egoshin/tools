@@ -16,10 +16,10 @@ The main purpose of this tool is to enable splitting projects for LLMs with limi
 
 ## 📦 Installation
 
-### 🚀 Using uvx (Recommended)
+### 🚀 Using uv (Recommended)
 
 ```bash
-uvx code2prompt
+uv run repo2prompt.py
 ```
 
 This will automatically download and run the latest version without requiring local installation.
@@ -30,10 +30,10 @@ This will automatically download and run the latest version without requiring lo
 pip install tiktoken
 ```
 
-Then download `code2prompt.py` and make it executable:
+Then download `repo2prompt.py` and make it executable:
 
 ```bash
-chmod +x code2prompt.py
+chmod +x repo2prompt.py
 ```
 
 ## 🎯 Usage
@@ -42,16 +42,16 @@ chmod +x code2prompt.py
 
 ```bash
 # Using uvx (recommended)
-uvx code2prompt --repo . --security-prompt-file security_prompt.md
+uv run repo2prompt.py --repo . --security-prompt-file security_prompt.md
 
 # Or with manual installation
-python3 code2prompt.py --repo . --security-prompt-file security_prompt.md
+python3 repo2prompt.py --repo . --security-prompt-file security_prompt.md
 ```
 
 ### ⚙️ Advanced Usage
 
 ```bash
-uvx code2prompt \
+uv run repo2prompt.py \
     --repo . \
     --security-prompt-file security_prompt.md \
     --embed-security-prompt first \
@@ -145,22 +145,11 @@ The tool is designed to work with security analysis prompts. The default `securi
 
 ## 📚 Examples
 
-### 🔍 Security Analysis of Current Repository
-
-```bash
-uvx code2prompt \
-    --repo . \
-    --security-prompt-file security_prompt.md \
-    --embed-security-prompt each \
-    --model-context 128000 \
-    --reserve-completion 4000 \
-    --log-skipped
-```
 
 ### 🏢 Large Repository with Custom Filters
 
 ```bash
-uvx code2prompt \
+uv run repo2prompt.py \
     --repo /path/to/large/repo \
     --include "**/*.py" \
     --include "**/*.js" \
@@ -175,7 +164,7 @@ uvx code2prompt \
 ### ⚡ Minimal Configuration
 
 ```bash
-uvx code2prompt --repo . --embed-security-prompt none
+uv run repo2prompt.py --repo . --embed-security-prompt none
 ```
 
 ## 🧠 Token Budgeting
