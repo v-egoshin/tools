@@ -4,7 +4,7 @@ A collection of useful development tools.
 
 ## Available Tools
 
-### code2prompt
+### repo2prompt
 
 A Python tool that intelligently splits code repositories into LLM-sized chunks for security analysis and other AI-powered code review tasks. The tool ensures files are never split across chunks and accounts for security prompts in token budgeting.
 
@@ -16,10 +16,15 @@ The main purpose of this tool is to enable splitting projects for LLMs with limi
 - Configurable file filtering with glob patterns
 - Support for different LLM encodings
 - Comprehensive logging of skipped files
+- Content-based filtering (binary detection, empty file exclusion)
 
 **Quick Start:**
 ```bash
-uvx code2prompt --repo . --security-prompt-file security_prompt.md
+# Using uv run (recommended)
+uv run repo2prompt/repo2prompt.py --repo . --security-prompt-file repo2prompt/security_prompt.md
+
+# Or with Python directly
+python3 repo2prompt/repo2prompt.py --repo . --security-prompt-file repo2prompt/security_prompt.md
 ```
 
-For detailed documentation, see [code2prompt/README.md](code2prompt/README.md).
+For detailed documentation, see [repo2prompt/README.md](repo2prompt/README.md).
